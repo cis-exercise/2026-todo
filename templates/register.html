@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <div class="row">
+            <div class="col-auto">
+                <h1>{{ title }}</h1>
+            </div>
+        </div>
+        <form action="/register" method="post">
+            <div class="row">
+                <div class="col-auto">
+                    <p>すべて必須項目です</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-auto">
+                    <div class="form-floating">
+                        <input class="form-control" type="text" name="id" id="id" placeholder="ユーザIDを入力..." required>
+                        <label for="id" class="col-form-label">ユーザID</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-auto">
+                    <div class="form-floating">
+                        <input class="form-control" type="password" name="password" id="password" placeholder="パスワードを入力..." required>
+                        <label for="password" class="col-form-label">パスワード</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-auto">
+                    <div class="form-floating">
+                        <input class="form-control" type="text" name="lastname" id="lastname" placeholder="姓を入力..." required>
+                        <label for="lastname" class="col-form-label">姓</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-auto">
+                    <div class="form-floating">
+                        <input class="form-control" type="text" name="firstname" id="firstname" placeholder="名を入力..." required>
+                        <label for="firstname" class="col-form-label">名</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-auto">
+                    <input class="btn btn-primary" type="submit" value="登録">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

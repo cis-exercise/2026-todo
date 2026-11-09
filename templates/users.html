@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ title }}</h1>
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>氏名</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users: %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.lastname }} {{ user.firstname }}</td>
+            <td>
+                {% if current_user in user.followers: %} <!-- 自身（ログイン中のユーザ）が表示されるユーザのフォロワーに含まれているか -->
+                <a href="/unfollow/{{ user.id }}">フォロー解除</a> <!-- 含まれている（フォロワー）なら「フォロー解除」のリンク-->
+                {% else: %}
+                <a href="/follow/{{ user.id }}">フォローする</a> <!-- 含まれていない（フォロワーでない）なら「フォローする」のリンク-->
+                {% endif %}
+            </td>
+        </tr>
+        {% else: %}
+        <tr>
+            <td colspan="3">表示する情報がありません</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
